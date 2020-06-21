@@ -27,29 +27,29 @@
     * 설치 후 client의 LandingPage.js와 server의 index.js에서 axios test
     
     
-    // client - LandingPage.js
-    import React, { useEffect } from "react";
-    import axios from 'axios';
-    function LandingPage() {
+        // client - LandingPage.js
+        import React, { useEffect } from "react";
+        import axios from 'axios';
+        function LandingPage() {
     
-      useEffect(() => { // useEffect사용해서 랜딩페이지에 들어오자마자 이 부분을 실행한다는 의미
+        useEffect(() => { // useEffect사용해서 랜딩페이지에 들어오자마자 이 부분을 실행한다는 의미
         axios.get('/api/hello')
           .then(response => console.log(response))
-      }, [])
+        }, [])
     
-      return (
-        <div>
-          LandingPage 랜딩페이지
-        </div>
-      )
-    }
-    export default LandingPage
+          return (
+            <div>
+              LandingPage 랜딩페이지
+            </div>
+          )
+        }
+        export default LandingPage
     
-    // server - index.js
-    app.get('/api/hello', (req,res) => {
-    
-      res.send("안녕하세요 블레어입니다.")
-    })
+        // server - index.js
+        app.get('/api/hello', (req,res) => {
+        
+          res.send("안녕하세요 블레어입니다.")
+        })
 * 서버는 5000 port이고 클라이언트는 3000 port여서 CORS error가 발생함
 * Cross-Origin Resource Sharing 해결하려면?
     * 개발자 구를 이용해서 해결할 수 있지만 개발자들만 사용할 수 있어서 제한적이다.
