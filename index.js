@@ -6,7 +6,7 @@ const port = 5000; // 어떤 숫자도 괜찮다. 나는 5000으로 설정
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser'); // npm install한 cookie parser를 require시켜주기
 const config = require('./config/key');
-
+const { auth } = require('./middleware/auth');
 const {User} = require("./models/User");
 
 
@@ -24,7 +24,7 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req, res) => res.send('Hello World! 블레ㅇ입니다....')); // '/'인 즉 루트 디렉토리에 오면 헬로월드 출력하게해주는 부분
 
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
 
   // 회원가입시 필요한 정보들을 클라이언트에서 가져오면 그것을들 DB에 넣어준다.
   const user = new User(req.body);
@@ -40,7 +40,7 @@ app.post('/register', (req, res) => {
   })
 })
 
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
 
   // 요청된 이메일을 데이터베이스에서 있는지 찾기
   User.findOne({email: req.body.email}, (err, user) => {
@@ -71,6 +71,21 @@ app.post('/login', (req, res) => {
   })
 })
 
+// 인증구현
+app.get('/api/users/auth', auth, (req,res) => {
+
+  // 여기까지 미들웨어를 통과해 왔다는 얘기는 인증이 true 라는 의미이다.
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role:req.user.role,
+    image: req.user.image
+  })
+})
 
 app.listen(port, () => console.log(`Example app listening on port${port}!!`));
 // 위에서 설정한 포트번호에서 이 app을 실행하기
