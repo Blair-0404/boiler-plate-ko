@@ -4,7 +4,7 @@
 ***
  
 # < Client >
-## client내부경로로 들어와서 npx create-react-app . 로 앱생
+## client내부경로로 들어와서 npx create-react-app . 로 앱생성  
 * 뒤에 .의 의미는 현재 경로안에 설치하겠다는 의미
 * npm 이 아닌 npx로 다운받는 이유 : 
     * npm(Node Package Manager)은 저장소 역할을 한다. npm에 관한것은 package.json에 다 나와있다.
@@ -143,3 +143,15 @@
     * Redux Extension 적용
           
 * store에는 여러개의 reducer들이 있을 수 있다. (reducer는 store의 값을 변화시킨다.) -> 여러 리듀서들을 rootReducer로 합친다.
+
+## React Component 
+* Class Component
+    * LifeCycle (constructor->render->componentDidMount 대표적으로 많이 쓰임)
+    * render부분의 JSX를 -> 돔트리 ?
+* Functional Component
+    * Hooks (본 프젝에서는 Hooks사용)
+    *  componentDidMount 가 훅에서는 useEffect
+    
+*** 
+## 로그인 페이지 구현
+* 기본기능 가진 로그인 페이지 만들기 (Formik, Yup은 다음기회에)
