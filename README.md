@@ -28,7 +28,6 @@
     
     
     // client - LandingPage.js
-    
     import React, { useEffect } from "react";
     import axios from 'axios';
     function LandingPage() {
@@ -44,13 +43,9 @@
         </div>
       )
     }
-    
     export default LandingPage
     
-***
-    
     // server - index.js
-    
     app.get('/api/hello', (req,res) => {
     
       res.send("안녕하세요 블레어입니다.")
