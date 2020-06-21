@@ -5,35 +5,26 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import './App.css';
+
+// import './App.css';
+import LandingPage from "./components/views/LandingPage/LandingPage";
+import LoginPage from "./components/views/LoginPage/LoginPage";
+import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route exact path="/" component={LandingPage}>
+            {/*<LandingPage />*/}
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route exact path="/login" component={LoginPage}>
+            {/*<LoginPage />*/}
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/register" component={RegisterPage}>
+            {/*<RegisterPage />*/}
           </Route>
         </Switch>
       </div>
@@ -41,17 +32,7 @@ function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 
 export default App;
