@@ -86,3 +86,11 @@
                     - 더 나은 보안제공
                     - 캐쉬를 이용해 더 빠른 인터넷 이용
         
+## 서버와 클라이언트르 따로 키지않고 한번에 킬 수 있게 concurrently 라이브러리 사용해보기
+* npm install concurrently --save 로 다운
+* server- package.json에서  설정
+
+        "scripts"에 아래 추가하기
+        "dev" : "concurrently \"npm run backend\" \"npm run start --prefix client\""
+
+## CSS framework 사용해보기
