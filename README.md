@@ -94,3 +94,14 @@
         "dev" : "concurrently \"npm run backend\" \"npm run start --prefix client\""
 
 ## CSS framework 사용해보기
+* CSS framework 종류
+    * Material-UI
+    * React Bootstrap
+    * Semantic UI
+    * Ant Design 
+    * Materialize
+    
+### 본 프로젝트에서는 Atn Design 사용!
+* 사이즈가 큰 단점이있지만 디자인이 굉장히 심플하고(주관적) 사용하기 편리한 장점이 있다.
+* client 경로에 들어가서 npm install antd --save 다운
+* client-index.js에 import 'antd/dist/antd.css'; 추가 (impoort시키기)
