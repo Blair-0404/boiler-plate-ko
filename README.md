@@ -158,4 +158,7 @@
 * axois는 action에서 날림
 
 ## 회원가입 페이지 구현
-* Register.js에 회원가입 코딩 후 만들었떤 서버에 요청 후 mongoDB에 회원생성 확인함,
+* Register.js에 회원가입 코딩 후 만들었떤 서버에 요청 후 mongoDB에 회원생성 확인함.
+
+## 로그아웃 기능 구현
+* LandingPage.js에 구현
